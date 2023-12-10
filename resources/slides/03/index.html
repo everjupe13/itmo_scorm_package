@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Исследование экосистемы Vue для разработки веб-приложений</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body>
+  <div class="mb-40">
+    <h1 class="mb-30">Устройство Vue API</h1>
+    <p class="mb-20">
+      <code>Option API</code> и <code>Composition API</code> - это два подхода к написанию компонентов во Vue.js. Они
+      представляют разные методы организации кода и работы с состоянием компонентов.
+    </p>
+    <div class="mb-20">
+      <h3 class="mb-10">Option API:</h3>
+      <p class="mb-10"><code>Option API</code> - это классический способ написания компонентов в Vue.js. Он основан на
+        определении объекта <code>options</code>,
+        который содержит различные свойства и методы компонента, такие как <code>data</code>, <code>methods</code>,
+        <code>computed</code>, <code>watch</code> и т.д. Каждое
+        свойство опций соответствует определенному аспекту жизненного цикла или функциональности компонента.</p>
+      <p>Пример компонента с использованием <code>Option API:</code></p>
+      <pre><code>export default {
+        data() {
+          return {
+            count: 0
+          };
+        },
+        methods: {
+          increment() {
+            this.count++;
+          }
+        }
+      };</code></pre>
+    </div>
+    <div class="mb-20">
+      <h3 class="mb-10">Composition API:</h3>
+      <p class="mb-10"><code>Composition API</code> - это новый подход, введенный в Vue 3, который предоставляет более
+        гибкую и модульную структуру для написания компонентов. Он позволяет организовывать код компонента с помощью
+        отдельных логических блоков <code>(composition functions)</code>, которые могут содержать логику и состояние компонента. Эти
+        функции могут быть повторно использованы и комбинированы.
+      </p>
+      <p>Пример компонента с использованием <code>Composition API:</code></p>
+      <pre><code>import { ref } from 'vue';
+
+        export default {
+          setup() {
+            const count = ref(0);
+        
+            const increment = () => {
+              count.value++;
+            };
+        
+            return {
+              count,
+              increment
+            };
+          }
+        };</code></pre>
+    </div>
+
+    <div class="mb-20">
+      <h4>Сравнение:</h4>
+      <ul>
+        <li>
+          <code>Option API</code> прост в освоении и хорошо подходит для небольших компонентов. Он имеет четкую структуру с определенными опциями.
+        </li>
+        <li>
+          <code>Composition API</code> предоставляет большую гибкость и возможность организовать логику компонента более модульно и читаемо. Он особенно полезен для больших компонентов или компонентов с большим объемом логики.
+        </li>        
+      </ul>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <button type="button" class="button button-primary"
+      onclick="window.parent.postMessage({ 'message': 'next' }, '*')">Далее</button>
+  </div>
+</body>
+
+</html>
